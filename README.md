@@ -2,6 +2,7 @@
  To get started, we’ll need to set up our project.
  Take a clone of this repository
  go to the project folder and open it in IDE of your choice .I am using visual studio code.
+ create .env by copying example.env. 
  open terminal and give command "npm i"
  to run the server give command " npm run dev"
 
