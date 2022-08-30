@@ -113,6 +113,8 @@ app.post("/createbet", auth, async(req, res) => {
   const { betColor, betType, betNumber, winner,user_id } = req.body;
   let total = 0;
   const betstatus = 1;
+
+
   if (betNumber === winner) {
   
     if ( betNumber && betType && betColor || betNumber && betType || betNumber && betColor) {

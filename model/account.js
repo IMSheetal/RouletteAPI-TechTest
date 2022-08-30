@@ -4,7 +4,7 @@ const accountSchema = new mongoose.Schema({
     user_id: { type: String, default: null },
     email: { type: String, default: null },
     amountWin: { type: String, default: null },
-    betAmount: { type: String, unique: true },
+    betAmount: { type: String },
     betstatus: { type: String }
 });
 
