@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const User = require("./model/user");
 const auth = require("./middleware/auth");
 const Account = require("./model/account");
+const { default: mongoose } = require("mongoose");
 
 const app = express();
 
@@ -98,13 +99,18 @@ app.get("/logout", auth, async (req, res) => {
 });
 
 app.post("/home", auth, async(req, res) => {
-  const { user_id } = req.body;
-  const userProfile = await User.findOne({ user_id });
-res.status(200).json(userProfile);
+  
+  try{
+    const userProfile = await User.findOne({_id: req.body.user_id});
+    res.status(200).json(userProfile);
+  }catch(err){
+    console.log(err);
+  }
+
 });
 app.post("/bettingHistory", auth, async(req, res) => {
-  const { user_id } = req.body;
-  const userAccountHistory = await Account.find({ user_id });
+const { user_id} = req.body;
+  const userAccountHistory = await Account.find({user_id});
 res.status(200).json(userAccountHistory);
 });
 
